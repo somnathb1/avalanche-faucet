@@ -1,11 +1,11 @@
 {
-    "banner": "/banner.webp",
+    "banner": "/banner.svg",
     "apiBaseEndpointProduction": "/api/",
     "apiBaseEndpointDevelopment": "http://localhost:8000/api/",
     "apiTimeout": 10000,
     "CAPTCHA": {
-        "siteKey": "6LerTgYgAAAAALa7WiJs3q0pM30PH6JH4oDi_DaK",
-        "v2siteKey": "6LcPmIYgAAAAADKWHw28ercYsZV7QbDMz_SUeK-Q", 
+        "siteKey": "6Lc9X0ghAAAAAETrD1CSVYa_ax59mMANEzhfW2eR",
+        "v2siteKey": "6Ld6OkghAAAAAPpb_uoX07d1QRVzy48UqEP7Xc_t", 
         "action": "faucetdrip"
     }
 }

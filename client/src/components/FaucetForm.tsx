@@ -460,18 +460,18 @@ const FaucetForm = (props: any) => {
                 <div className='box-content'>
                     <div className='box-header'>
                         <span>
-                            <span style={{color: "grey"}}>Select Network</span>
+                            <span style={{color: "white"}}>Select Network</span>
                         </span>
 
                         <ChainDropdown /> <br/>
 
                         <div>
                             <div style={{width: "100%"}}>
-                                <span style={{color: "grey", fontSize: "12px", float: "right"}}>
+                                <span style={{color: "white", fontSize: "12px", float: "right"}}>
                                     Faucet balance: {Math.round(balance/1e9 * 100) / 100} {chainConfigs[token!]?.TOKEN}
                                 </span>
 
-                                <span style={{color: "grey", fontSize: "12px"}}>
+                                <span style={{color: "white", fontSize: "12px"}}>
                                     Select Token
                                 </span>
 
