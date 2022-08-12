@@ -4,6 +4,9 @@ import cors from 'cors'
 import path from 'path'
 import dotenv from 'dotenv'
 import { BN } from 'avalanche'
+import fs from 'fs'
+import http from 'http'
+import https from 'https'
 
 import { RateLimiter, VerifyCaptcha, parseURI } from './middlewares'
 import EVM from './vms/evm'
@@ -151,6 +154,31 @@ app.get('*', async (req: any, res: any) => {
     res.sendFile(path.join(__dirname, "client", "index.html"))
 })
 
-app.listen(process.env.PORT || 8000, () => {
+// app.listen(process.env.PORT || 8000, () => {
+//     console.log(`Server started at port ${process.env.PORT || 8000}`)
+// })
+
+
+
+const privateKey = fs.readFileSync('selfsigned.key', 'utf8')
+const certificate = fs.readFileSync('selfsigned.crt', 'utf8')
+
+const credentials = {
+    key: privateKey,
+    cert: certificate
+}
+
+const httpServer = http.createServer(app)
+const httpsServer = https.createServer(credentials, app)
+
+httpServer.listen(process.env.PORT || 8000, () => {
     console.log(`Server started at port ${process.env.PORT || 8000}`)
 })
+
+try{
+    httpsServer.listen(443, () => {
+        console.log(`HTTPS server started at port 443`)
+    })
+} catch (err: any){
+    console.log(err)
+}
